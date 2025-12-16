@@ -23,7 +23,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-primary text-text leading-relaxed">
-  <!-- Header -->
   <header class="bg-primary-dark shadow">
     <div class="container mx-auto px-6 py-4 flex items-center">
       <a href="index.html" class="flex items-center">
@@ -33,34 +32,87 @@
     </div>
   </header>
 
-  <!-- Privacy Policy Content -->
   <section class="py-20">
     <div class="container mx-auto px-6 text-text">
       <h2 class="text-3xl font-bold text-center mb-6 text-secondary">Privacy Policy – HoloScan</h2>
-      <p class="mb-4"><strong>Effective Date:</strong> May 29, 2025</p>
+      <p class="mb-4"><strong>Effective Date:</strong> December 16, 2025</p>
+
       <h3 class="text-xl font-semibold mb-2">1. General Information</h3>
-      <p>HoloScan is a mobile application designed to help users catalogue and manage their personal collection of Star Wars Unlimited trading cards. The app does not require login or any personal data input.</p>
-      <h3 class="text-xl font-semibold mb-2 mt-4">2. Data Collected</h3>
-      <p>The app only collects data about the user's card collection, such as card names, quantities, conditions, and any other notes the user may choose to input manually.</p>
-      <h3 class="text-xl font-semibold mb-2 mt-4">3. No Personal Data</h3>
-      <p>HoloScan does not collect any personal data such as name, email address, phone number, GPS location, device data, or media files.</p>
-      <h3 class="text-xl font-semibold mb-2 mt-4">4. Data Storage</h3>
-      <p>All data is stored locally on the user's device. No data is transmitted to any external servers or cloud services. The application's developer doesn't have access to any user data.</p>
-      <h3 class="text-xl font-semibold mb-2 mt-4">5. Data Sharing</h3>
-      <p>No data is shared, sold, or transferred to third parties.</p>
-      <h3 class="text-xl font-semibold mb-2 mt-4">6. Tracking Technologies</h3>
-      <p>The app does not use cookies, tracking scripts, analytics tools, or any similar technologies.</p>
-      <h3 class="text-xl font-semibold mb-2 mt-4">7. Data Deletion</h3>
-      <p>Users can delete all stored data directly through the settings section of the app.</p>
-      <h3 class="text-xl font-semibold mb-2 mt-4">8. Children's Privacy</h3>
-      <p>The app is not intended for use by children under the age of 13.</p>
-      <h3 class="text-xl font-semibold mb-2 mt-4">9. Contact</h3>
-      <p>If you have any questions or concerns regarding privacy, please contact me at:</p>
+      <p>HoloScan is a mobile application designed to help users catalogue and manage their personal collection of <em>Star Wars Unlimited</em> trading cards. The app can be used fully offline without creating an account. Users may optionally sign in to enable Community features or Premium cloud synchronization.</p>
+
+      <h3 class="text-xl font-semibold mb-2 mt-6">2. Data Collected</h3>
+      <ul class="list-disc pl-6 space-y-2">
+        <li><strong>Offline use (no login):</strong> Card collection data entered manually by the user (card names, quantities, conditions, notes). This data is stored only on the user's device and is never transmitted externally.</li>
+        <li><strong>Login (General):</strong> Authentication data from Google or Apple Sign-In handled by Firebase Authentication (e.g., email address, display name/username, unique user ID).</li>
+        <li><strong>Community Features (Optional):</strong> If a logged-in user chooses to publish a deck, post a comment, or vote on content, this specific data (Deck lists including cards, Comment text, Username, and Vote interactions) is uploaded to Firebase Cloud Firestore to be visible to other users. This occurs regardless of Premium subscription status.
+        <br><em>Note: We also store lists of users you have blocked and content reports you have submitted for moderation purposes.</em></li>
+        <li><strong>Login with Premium subscription (Cloud Sync):</strong> In addition to the above, the user's entire private card collection, private decks, and lists are stored in Firebase Cloud Firestore for backup and synchronization across devices.</li>
+        <li><strong>Technical data:</strong> Locally cached preferences (e.g., subscription status) stored using SharedPreferences on the device.</li>
+      </ul>
+
+      <h3 class="text-xl font-semibold mb-2 mt-6">3. Purpose of Data Use</h3>
+      <ul class="list-disc pl-6 space-y-2">
+        <li>To provide basic functionality for local collection management on the device.</li>
+        <li>To enable community interactions, such as sharing public decks, commenting on decks, and voting.</li>
+        <li>To ensure community safety through moderation features (handling reports and blocked users).</li>
+        <li>To enable <strong>Premium-only</strong> features, specifically cloud backup and synchronization via Firebase Cloud Firestore.</li>
+        <li>To manage Premium subscriptions and purchases via RevenueCat (validation and restoration across devices).</li>
+      </ul>
+
+      <h3 class="text-xl font-semibold mb-2 mt-6">4. Data Storage</h3>
+      <ul class="list-disc pl-6 space-y-2">
+        <li><strong>Local Storage:</strong> By default, all private collection data is stored only on the user's device.</li>
+        <li><strong>Cloud Storage:</strong>
+          <ul class="list-disc pl-6 mt-1 text-gray-400">
+            <li><strong>Public Data:</strong> Decks and comments explicitly published by the user are stored in Google Firebase Cloud Firestore.</li>
+            <li><strong>Private Data (Premium only):</strong> When subscribed, private collections and lists are stored in Google Firebase Cloud Firestore associated with the user's account.</li>
+          </ul>
+        </li>
+        <li><strong>Subscriptions:</strong> Subscription and purchase information is processed and stored by <strong>RevenueCat</strong>, and also handled through the App Store or Google Play Store depending on the platform.</li>
+      </ul>
+      <p class="mt-2">The developer does not access individual private user data directly.</p>
+
+      <h3 class="text-xl font-semibold mb-2 mt-6">5. Data Sharing</h3>
+      <p>The app does not sell or share data with third parties for advertising or marketing purposes.</p>
+      <p class="mt-2"><strong>Publicly Visible Information:</strong> If you use the Community features to publish a deck or post a comment, the content of that deck (cards included), your chosen username, and the content of your comment will be visible to other users of the application.</p>
+      <p class="mt-2">The following service providers are used strictly to deliver app functionality:</p>
+      <ul class="list-disc pl-6 space-y-2 mt-2">
+        <li><strong>Google Firebase:</strong> Authentication (Google/Apple Sign-In) and Cloud Storage (Firestore).<br>
+          <a href="https://policies.google.com/privacy" target="_blank" class="text-secondary hover:underline">View Google Privacy Policy</a>
+        </li>
+        <li><strong>Apple (Sign in with Apple):</strong> Authentication for iOS/macOS users.<br>
+          <a href="https://www.apple.com/legal/privacy/en-ww/" target="_blank" class="text-secondary hover:underline">View Apple Privacy Policy</a>
+        </li>
+        <li><strong>RevenueCat:</strong> Subscription and purchase management.<br>
+          <a href="https://www.revenuecat.com/privacy/" target="_blank" class="text-secondary hover:underline">View RevenueCat Privacy Policy</a>
+        </li>
+        <li><strong>Google Play Store:</strong> Handles billing and subscription purchases for Android users.<br>
+          <a href="https://play.google.com/about/play-terms/index.html" target="_blank" class="text-secondary hover:underline">Google Play Terms &amp; Policies</a>
+        </li>
+        <li><strong>Apple App Store:</strong> Handles billing and subscription purchases for iOS/macOS users.<br>
+          <a href="https://www.apple.com/legal/internet-services/itunes/" target="_blank" class="text-secondary hover:underline">Apple Media Services Terms &amp; Conditions</a>
+        </li>
+      </ul>
+
+      <h3 class="text-xl font-semibold mb-2 mt-6">6. Tracking Technologies</h3>
+      <p>The app does <strong>not</strong> use advertising SDKs, cookies, or analytics tools. Firebase Authentication, RevenueCat, and the app stores may process device and account identifiers strictly for login, fraud prevention, subscription validation, and billing.</p>
+
+      <h3 class="text-xl font-semibold mb-2 mt-6">7. Data Retention and Deletion</h3>
+      <ul class="list-disc pl-6 space-y-2">
+        <li><strong>Local Data:</strong> Data exists only on the device and can be deleted by uninstalling the app or using in-app options to clear data.</li>
+        <li><strong>Cloud Data (Account Deletion):</strong> Users may request the deletion of their account and associated cloud data (including public posts and private backups) by contacting the developer or using the account deletion option within the app (if available).</li>
+        <li>Subscription data retention follows App Store and Google Play billing policies (managed by RevenueCat and respective stores).</li>
+      </ul>
+
+      <h3 class="text-xl font-semibold mb-2 mt-6">8. Children's Privacy</h3>
+      <p>The app is not intended for use by children under the age of 13. If you believe a child has used the app and provided personal data, please contact the developer for deletion.</p>
+
+      <h3 class="text-xl font-semibold mb-2 mt-6">9. Contact</h3>
+      <p>If you have any questions or privacy-related requests, please contact:</p>
       <p><a href="mailto:drews.piotr@gmail.com" class="text-secondary hover:underline">drews.piotr@gmail.com</a></p>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="bg-primary-dark border-t border-surface py-6">
     <div class="container mx-auto px-6 text-center text-sm text-text">
       <a href="index.html" class="hover:text-secondary">Back to Home</a>
